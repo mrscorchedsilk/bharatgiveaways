@@ -283,8 +283,8 @@
             dataLayer.push({'event': 'form_submit'});
 
             // Send Data to Webhook
-            fetch("https://rajatk.app.n8n.cloud/webhook-test/79b58b31-eaaf-476b-b01e-01fef9354c21", 
-                method: "GET",
+            fetch("https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21", 
+                method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)
             })
