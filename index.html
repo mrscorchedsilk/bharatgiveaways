@@ -266,35 +266,43 @@
     </form>
 
     <script>
-        document.getElementById("giveawayForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
+ document.getElementById("giveawayForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-            let formData = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                investment: document.querySelector('input[name="investment"]:checked')?.value || "No Selection"
-            };
+    // Collect form data
+    let formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        investment: document.querySelector('input[name="investment"]:checked')?.value || "No Selection"
+    };
 
-            // Fire Facebook Pixel Event
-            fbq('track', 'Lead');
+    // Log the data for debugging
+    console.log("Form Data:", formData);
 
-            // Fire Google Tag Manager Event
-            dataLayer.push({'event': 'form_submit'});
+    // Convert form data to URL query parameters
+    const queryParams = new URLSearchParams(formData).toString();
 
-            // Send Data to Webhook
-            fetch("https://services.leadconnectorhq.com/hooks/JE3qtEopOqTTyUYhFNOM/webhook-trigger/e4314ef7-d88f-47b1-88b5-b4f1e36bff86", 
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Thank you! Your entry has been submitted.");
-                window.location.href = "thank-you.html"; // Redirect to thank-you page
-            })
-            .catch(error => console.error("Error:", error));
-        });
+    // Send data to n8n webhook using GET
+    fetch(`https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21?${queryParams}`, {
+        method: "GET"
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Success:", data);
+        alert("Thank you! Your entry has been submitted.");
+        window.location.href = "thank-you.html"; // Redirect to thank-you page
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("There was an error submitting your entry. Please try again.");
+    });
+});
     </script>
 </body>
 </html>
