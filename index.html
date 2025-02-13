@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win an iPhone 16 – Enter Now!</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n;
+        n.loaded=!0;
+        n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e);
+        t.async=!0;
+        t.src=v;
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}
+        (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','YOUR_GTM_ID');
+    </script>
+
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Form Container */
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Headline */
+        h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Input Fields */
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Multiple Choice Question */
+        .choices label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .choices input {
+            display: none;
+        }
+
+        .choices label:hover, .choices input:checked + label {
+            background: #0099ff;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        button {
+            background: #0099ff;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 18px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button:hover {
+            background: #00c3ff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 400px) {
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>Win an iPhone 16 – Enter Now!</h2>
+    
+    <form id="giveawayForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <!-- New Multiple-Choice Question -->
+        <label>How much would you spend to increase your chances of winning the iPhone 16? *</label>
+        <div class="choices">
+            <input type="radio" id="choice1" name="investment" value="₹99–499">
+            <label for="choice1">🏅 ₹99–499 – I want better odds</label>
+
+            <input type="radio" id="choice2" name="investment" value="₹499–999">
+            <label for="choice2">🚀 ₹499-999 – I’m serious about winning</label>
+
+            <input type="radio" id="choice3" name="investment" value="₹1,000+">
+            <label for="choice3">🏆 ₹1,000+ – I’ll do whatever it takes to win!</label>
+
+            <input type="radio" id="choice4" name="investment" value="Free Entry">
+            <label for="choice4">😔 I’m here for the free entry only (no extra perks)</label>
+        </div>
+
+        <button type="submit">Enter Now</button>
+    </form>
+
+    <script>
+        document.getElementById("giveawayForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                investment: document.querySelector('input[name="investment"]:checked')?.value || "No Selection"
+            };
+
+            // Fire Facebook Pixel Event
+            fbq('track', 'Lead');
+
+            // Fire Google Tag Manager Event
+            dataLayer.push({'event': 'form_submit'});
+
+            // Send Data to Webhook
+            fetch("YOUR_WEBHOOK_URL_HERE", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Thank you! Your entry has been submitted.");
+                window.location.href = "thank-you.html"; // Redirect to thank-you page
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+
+</body>
+</html>
