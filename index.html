@@ -1,306 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win an iPhone 16 – Enter Now!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Win an iPhone 16 – Limited Time Offer!</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
 
-    <!-- Facebook Pixel -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;
-        n.push=n;
-        n.loaded=!0;
-        n.version='2.0';
-        n.queue=[];
-        t=b.createElement(e);
-        t.async=!0;
-        t.src=v;
-        s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}
-        (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'YOUR_FACEBOOK_PIXEL_ID'); // Replace with your Facebook Pixel ID
-        fbq('track', 'PageView');
-    </script>
+  <style>
+    /* Make sure padding/borders do not exceed set widths */
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','YOUR_GTM_ID'); // Replace with your GTM ID
-    </script>
+    /* General Page Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: black;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-    <style>
-        /* General Page Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: black;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 40px 20px; /* Added padding for cushion */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* Changed to min-height to allow content to grow */
-        }
+    /* Full-Width Dark Navy Blue Header Banner */
+    .header-banner {
+      background: #0e182c; /* dark navy blue */
+      color: white;
+      padding: 10px 0;
+      font-size: 28px;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+    }
 
-        /* Logo Styling */
-        .logo {
-            width: 180px;
-            margin-bottom: 20px; /* Added margin for spacing */
-        }
+    /* Countdown Title */
+    #countdown-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+      font-family: 'Black Han Sans', sans-serif; /* Using Black Han Sans here */
+    }
 
-        /* Countdown Timer Styling */
-        #countdown-container {
-            text-align: center;
-            margin-bottom: 30px; /* Increased margin for spacing */
-        }
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;  /* Space between each .time-box */
+      margin-top: 10px;
+        color: red
+    }
 
-        #countdown-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-            margin-bottom: 10px;
-        }
+.time-box {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 5px; /* You can reduce padding further if you like */
+  min-width: 60px;
+  text-align: center;
+  /* Force a smaller line-height on the container as well */
+  line-height: 1;
+}
 
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+.time-box span,
+.time-box label {
+  display: block;
+  margin: 0;       /* Remove any default margins */
+  padding: 0;      /* Remove any default padding */
+  line-height: 1;  /* Tight line-height */
+}
 
-        .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            min-width: 60px;
-        }
+    .time-box label {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      margin: 0; /* Ensures no extra margin above or below the label */
+    }
 
-        .time-box span {
-            display: block;
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-        }
+    /* Form Container */
+    .form-container {
+      background: black;
+      color: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto; /* This centers the black container horizontally */
+      text-align: left;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .time-box label {
-            font-size: 14px;
-            color: white;
-        }
+    /* Form Title */
+    .form-container h2 {
+      text-align: center;
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
 
-        /* Form Container */
-        form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            width: 350px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px; /* Added margin for spacing */
-        }
+    /* Highlighted Blue Text */
+    .highlight-text {
+      text-align: center;
+      font-weight: bold;
+      color: #6bb3ff; /* lighter blue */
+      margin: 10px 0;
+    }
 
-        /* Headline */
-        h2 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 28px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+    /* Input Fields */
+    input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-align: center; /* centers placeholder + typed text */
+    }
 
-        /* Input Fields */
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-family: 'Poppins', sans-serif;
-        }
+    input::placeholder {
+      color: #ccc;
+      text-align: center; /* ensure placeholder is also centered */
+    }
 
-        /* Multiple Choice Question */
-        .choices label {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    /* Multiple Choice Question */
+    .choices label {
+      display: block;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px 0;
+    }
 
-        .choices input {
-            display: none;
-        }
+    .choices input {
+      display: none;
+    }
 
-        .choices label:hover, .choices input:checked + label {
-            background: #0099ff;
-            color: black;
-            font-weight: bold;
-        }
+    .choices label:hover,
+    .choices input:checked + label {
+      background: #0099ff;
+      color: black;
+      font-weight: bold;
+    }
 
-        /* Button Styling */
-        button {
-            background: #0099ff;
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 18px;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-            font-weight: bold;
-            font-family: 'Poppins', sans-serif;
-        }
+    /* Consent Checkbox Container */
+    .checkbox-container {
+      margin-top: 10px;
+      font-size: 12px; /* Reduced font size */
+      line-height: 1.4;
+    }
 
-        button:hover {
-            background: #00c3ff;
-        }
+    .checkbox-container input {
+      margin-right: 8px;
+    }
 
-        /* Mobile Responsive */
-        @media (max-width: 400px) {
-            form {
-                width: 80%;
-            }
-        }
-    </style>
+    /* iPhone Image */
+    .iphone-image {
+      width: 100%;
+      max-width: 350px;
+      margin: 5px auto; /* reduce top/bottom margin */
+      display: block;
+      border-radius: 10px; /* rounded corners */
+    }
+
+    /* Submit Button */
+    .submit-button {
+      background: linear-gradient(to right, #0099ff, #00c3ff);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      .countdown-timer {
+        flex-wrap: wrap;
+      }
+
+      .form-container {
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Brand Logo -->
-    <img src="images/logo.png" alt="Brand Logo" class="logo">
-
-    <!-- Countdown Timer -->
-    <div id="countdown-container">
-        <div id="countdown-title">Winner Selected In</div>
-        <div class="countdown-timer">
-            <div class="time-box">
-                <span id="days">--</span>
-                <label>Days</label>
-            </div>
-            <div class="time-box">
-                <span id="hours">--</span>
-                <label>Hours</label>
-            </div>
-            <div class="time-box">
-                <span id="minutes">--</span>
-                <label>Minutes</label>
-            </div>
-            <div class="time-box">
-                <span id="seconds">--</span>
-                <label>Seconds</label>
-            </div>
-        </div>
+  <!-- Header Banner with Countdown Timer -->
+  <div class="header-banner">
+    <div id="countdown-title">WINNER SELECTED IN</div>
+    <div class="countdown-timer">
+      <div class="time-box">
+        <span id="days">--</span>
+        <label>Days</label>
+      </div>
+      <div class="time-box">
+        <span id="hours">--</span>
+        <label>Hours</label>
+      </div>
+      <div class="time-box">
+        <span id="minutes">--</span>
+        <label>Minutes</label>
+      </div>
+      <div class="time-box">
+        <span id="seconds">--</span>
+        <label>Seconds</label>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function updateCountdown() {
-            const targetDate = new Date("February 21, 2025 20:00:00 GMT+0530").getTime();
-            const now = new Date().getTime();
-            const timeLeft = targetDate - now;
+  <!-- iPhone Image -->
+  <img src="images/iphone16.png" alt="Win an iPhone 16" class="iphone-image" />
 
-            if (timeLeft <= 0) {
-                document.getElementById("countdown-title").innerHTML = "Winner Selected!";
-                document.getElementById("days").innerHTML = "0";
-                document.getElementById("hours").innerHTML = "0";
-                document.getElementById("minutes").innerHTML = "0";
-                document.getElementById("seconds").innerHTML = "0";
-                return;
-            }
+  <!-- Form Container -->
+  <div class="form-container">
+    <form>
+      <h2>Apply To WIN👇</h2>
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="WhatsApp Number" required />
+      <input type="text" name="postal_code" placeholder="Postal Code" required />
 
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-        }
+      <p class="highlight-text">
+        Spend More &gt; Get More Giveaway Entries than Others &gt; Win iPhone 16 🏆
+      </p>
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+      <!-- Spend More Question -->
+      <label>How much would you spend to increase your chances of winning?</label>
+      <div class="choices">
+        <input type="radio" id="choice1" name="investment" value="₹99–499" />
+        <label for="choice1">🏅 ₹99–499 – I want better odds</label>
 
-    <img src="images/iphone16.png" alt="Win an iPhone 16" width="400">
-    
-    <form id="giveawayForm">
-        <h2>Apply to Win an iPhone 16!</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="phone">Whatsapp Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="radio" id="choice2" name="investment" value="₹499–999" />
+        <label for="choice2">🚀 ₹499–999 – I’m serious about winning</label>
 
-        <!-- New Multiple-Choice Question -->
-        <label>How much would you spend to increase your chances of winning the iPhone 16?</label>
-        <div class="choices">
-            <input type="radio" id="choice1" name="investment" value="₹99–499">
-            <label for="choice1">🏅 ₹99–499 – I want better odds</label>
+        <input type="radio" id="choice3" name="investment" value="₹1,000+" />
+        <label for="choice3">🏆 ₹1,000+ – I’ll do whatever it takes to win!</label>
 
-            <input type="radio" id="choice2" name="investment" value="₹499–999">
-            <label for="choice2">🚀 ₹499-999 – I’m serious about winning</label>
+        <input type="radio" id="choice4" name="investment" value="No iPhone" />
+        <label for="choice4">😔 I don't want to win an iPhone</label>
+      </div>
 
-            <input type="radio" id="choice3" name="investment" value="₹1,000+">
-            <label for="choice3">🏆 ₹1,000+ – I’ll do whatever it takes to win!</label>
+      <!-- Household Members Question -->
+      <label>How many members are in your household?</label>
+      <div class="choices">
+        <input type="radio" id="household1" name="household_size" value="1-2" />
+        <label for="household1">1 - 2 Members</label>
 
-            <input type="radio" id="choice4" name="investment" value="Free Entry">
-            <label for="choice4">😔 I’m here for the free entry only (no extra perks)</label>
-        </div>
-        
-        <button type="submit">Enter Now</button>
+        <input type="radio" id="household2" name="household_size" value="3-4" />
+        <label for="household2">3 - 4 Members</label>
+
+        <input type="radio" id="household3" name="household_size" value="5+" />
+        <label for="household3">5+ Members</label>
+      </div>
+
+      <!-- Consent Checkbox -->
+      <div class="checkbox-container">
+        <input type="checkbox" id="consent" required />
+        <label for="consent">
+          I agree to terms &amp; conditions. By providing my phone number, I
+          agree to receive calls, emails &amp; WhatsApp messages.
+        </label>
+      </div>
+
+      <button class="submit-button">🏆 WIN YOUR FREE PHONE</button>
     </form>
+  </div>
 
-    <script>
-document.getElementById("giveawayForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+  <!-- Countdown Script -->
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("February 21, 2025 20:00:00 GMT+0530").getTime();
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
 
-    // Collect form data
-    let formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        investment: document.querySelector('input[name="investment"]:checked')?.value || "No Selection"
-    };
+      document.getElementById("days").innerText = Math.floor(
+        timeLeft / (1000 * 60 * 60 * 24)
+      );
+      document.getElementById("hours").innerText = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      document.getElementById("minutes").innerText = Math.floor(
+        (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      document.getElementById("seconds").innerText = Math.floor(
+        (timeLeft % (1000 * 60)) / 1000
+      );
+    }
 
-    // Send data to n8n webhook using a POST request
-    fetch("https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21", {
-        method: "POST",
-        headers: { 
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        return response.json().catch(() => null); // Catch cases where response isn't JSON
-    })
-    .then(data => {
-        console.log("Success:", data);
-        alert("Thank you! Your entry has been submitted.");
-        window.location.href = "thank-you.html"; // Redirect to thank-you page
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("There was an error submitting your entry. Please try again.");
-    });
-});
-</script>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
