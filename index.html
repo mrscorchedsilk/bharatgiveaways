@@ -12,7 +12,7 @@
   />
 
   <style>
-    /* Make sure padding/borders do not exceed set widths */
+    /* Ensure padding/borders don't exceed widths */
     * {
       box-sizing: border-box;
     }
@@ -44,7 +44,7 @@
       font-weight: bold;
       color: white;
       margin-bottom: 10px;
-      font-family: 'Black Han Sans', sans-serif; /* Using Black Han Sans here */
+      font-family: 'Black Han Sans', sans-serif; /* Using Black Han Sans */
     }
 
     .countdown-timer {
@@ -52,33 +52,31 @@
       justify-content: center;
       gap: 10px;  /* Space between each .time-box */
       margin-top: 10px;
-        color: red
+      color: red;
     }
 
-.time-box {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  padding: 5px; /* You can reduce padding further if you like */
-  min-width: 60px;
-  text-align: center;
-  /* Force a smaller line-height on the container as well */
-  line-height: 1;
-}
+    .time-box {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      padding: 5px; /* You can adjust padding further */
+      min-width: 60px;
+      text-align: center;
+      line-height: 1; /* Tighter line-height */
+    }
 
-.time-box span,
-.time-box label {
-  display: block;
-  margin: 0;       /* Remove any default margins */
-  padding: 0;      /* Remove any default padding */
-  line-height: 1;  /* Tight line-height */
-}
+    .time-box span,
+    .time-box label {
+      display: block;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
 
     .time-box label {
       font-size: 12px;
       text-transform: uppercase;
       font-weight: bold;
       color: white;
-      margin: 0; /* Ensures no extra margin above or below the label */
     }
 
     /* Form Container */
@@ -89,7 +87,7 @@
       border-radius: 10px;
       width: 90%;
       max-width: 400px;
-      margin: 20px auto; /* This centers the black container horizontally */
+      margin: 20px auto; /* Centers the black container horizontally */
       text-align: left;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
@@ -112,7 +110,9 @@
     }
 
     /* Input Fields */
-    input {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
       display: block;
       width: 100%;
       padding: 12px;
@@ -122,12 +122,12 @@
       font-size: 16px;
       background: rgba(255, 255, 255, 0.1);
       color: white;
-      text-align: center; /* centers placeholder + typed text */
+      text-align: center;
     }
 
     input::placeholder {
       color: #ccc;
-      text-align: center; /* ensure placeholder is also centered */
+      text-align: center;
     }
 
     /* Multiple Choice Question */
@@ -154,21 +154,35 @@
     /* Consent Checkbox Container */
     .checkbox-container {
       margin-top: 10px;
-      font-size: 12px; /* Reduced font size */
+      font-size: 12px;
       line-height: 1.4;
+      text-align: left; /* Make sure text is left-aligned in container */
     }
 
-    .checkbox-container input {
-      margin-right: 8px;
+    /* The label is inline-flex: checkbox + text stay together. 
+       width: 100% ensures it doesn't overflow. */
+    .checkbox-container label {
+      display: inline-flex;
+      align-items: flex-start;
+      flex-wrap: wrap; /* if text is too long, it wraps within container */
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;     /* ensures it fills the container & won't overflow */
+      margin: 0;
+      word-break: break-word; /* breaks long text if needed */
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 2px; /* small offset to align checkbox & text nicely */
     }
 
     /* iPhone Image */
     .iphone-image {
       width: 100%;
       max-width: 350px;
-      margin: 5px auto; /* reduce top/bottom margin */
+      margin: 5px auto;
       display: block;
-      border-radius: 10px; /* rounded corners */
+      border-radius: 10px;
     }
 
     /* Submit Button */
@@ -177,7 +191,7 @@
       color: white;
       border: none;
       padding: 14px;
-      font-size: 18px;
+      font-size: 25px;
       width: 100%;
       cursor: pointer;
       border-radius: 5px;
@@ -271,10 +285,10 @@
 
       <!-- Consent Checkbox -->
       <div class="checkbox-container">
-        <input type="checkbox" id="consent" required />
-        <label for="consent">
-          I agree to terms &amp; conditions. By providing my phone number, I
-          agree to receive calls, emails &amp; WhatsApp messages.
+        <label>
+          <input type="checkbox" id="consent" required />
+          I agree to terms &amp; conditions. By providing my phone number, I agree to
+          receive calls, emails &amp; WhatsApp messages.
         </label>
       </div>
 
