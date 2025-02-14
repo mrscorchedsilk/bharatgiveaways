@@ -266,12 +266,6 @@
     </form>
 
     <script>
- document.getElementById("giveawayForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    document.getElementById("giveawayForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
-
 document.getElementById("giveawayForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -283,18 +277,19 @@ document.getElementById("giveawayForm").addEventListener("submit", function(even
         investment: document.querySelector('input[name="investment"]:checked')?.value || "No Selection"
     };
 
-    // Convert form data to URL query parameters
-    const queryParams = new URLSearchParams(formData).toString();
-
-    // Send data to n8n webhook using GET
-    fetch(`https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21?${queryParams}`, {
-        method: "GET"
+    // Send data to n8n webhook using a POST request
+    fetch("https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
     })
     .then(response => {
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        return response.json();
+        return response.json().catch(() => null); // Catch cases where response isn't JSON
     })
     .then(data => {
         console.log("Success:", data);
@@ -306,6 +301,6 @@ document.getElementById("giveawayForm").addEventListener("submit", function(even
         alert("There was an error submitting your entry. Please try again.");
     });
 });
-    </script>
+</script>
 </body>
 </html>
