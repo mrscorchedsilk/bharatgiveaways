@@ -41,10 +41,10 @@
     /* Countdown Title */
     #countdown-title {
       font-size: 24px;
-      font-weight: bold;
+      font-weight: 550;
       color: white;
       margin-bottom: 10px;
-      font-family: 'Black Han Sans', sans-serif; /* Using Black Han Sans */
+      font-family: 'Black Han Sans', sans-serif;
     }
 
     .countdown-timer {
@@ -58,7 +58,7 @@
     .time-box {
       background: rgba(255, 255, 255, 0.2);
       border-radius: 5px;
-      padding: 5px; /* You can adjust padding further */
+      padding: 5px; 
       min-width: 60px;
       text-align: center;
       line-height: 1; /* Tighter line-height */
@@ -111,7 +111,6 @@
 
     /* Input Fields */
     input[type="text"],
-    input[type="email"],
     input[type="tel"] {
       display: block;
       width: 100%;
@@ -122,12 +121,12 @@
       font-size: 16px;
       background: rgba(255, 255, 255, 0.1);
       color: white;
-      text-align: center;
+      text-align: left; /* left-aligned text */
     }
 
     input::placeholder {
       color: #ccc;
-      text-align: center;
+      text-align: left; /* ensure placeholder is left-aligned too */
     }
 
     /* Multiple Choice Question */
@@ -141,7 +140,7 @@
     }
 
     .choices input {
-      display: none;
+      display: none; /* hide the actual radio buttons */
     }
 
     .choices label:hover,
@@ -156,24 +155,22 @@
       margin-top: 10px;
       font-size: 12px;
       line-height: 1.4;
-      text-align: left; /* Make sure text is left-aligned in container */
+      text-align: left; 
     }
 
-    /* The label is inline-flex: checkbox + text stay together. 
-       width: 100% ensures it doesn't overflow. */
     .checkbox-container label {
       display: inline-flex;
       align-items: flex-start;
-      flex-wrap: wrap; /* if text is too long, it wraps within container */
+      flex-wrap: wrap; 
       gap: 8px;
       cursor: pointer;
-      width: 100%;     /* ensures it fills the container & won't overflow */
+      width: 100%;    
       margin: 0;
-      word-break: break-word; /* breaks long text if needed */
+      word-break: break-word; 
     }
 
     .checkbox-container input[type="checkbox"] {
-      margin-top: 2px; /* small offset to align checkbox & text nicely */
+      margin-top: 2px; 
     }
 
     /* iPhone Image */
@@ -205,7 +202,6 @@
       .countdown-timer {
         flex-wrap: wrap;
       }
-
       .form-container {
         width: 95%;
       }
@@ -242,13 +238,49 @@
 
   <!-- Form Container -->
   <div class="form-container">
-    <form>
+    <form
+      id="winForm"
+      action="https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21"
+      method="POST"
+      novalidate
+    >
       <h2>Apply To WIN👇</h2>
 
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="tel" name="phone" placeholder="WhatsApp Number" required />
-      <input type="text" name="postal_code" placeholder="Postal Code" required />
+      <!-- Full Name (letters/spaces only) -->
+      <input 
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Full Name"
+        required
+      />
+
+      <!-- Email -->
+      <input 
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Email"
+        required
+      />
+
+      <!-- WhatsApp Number (Auto-Prefix +91, No Space) -->
+      <input 
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="WhatsApp Number"
+        required
+      />
+
+      <!-- Postal Code -->
+      <input 
+        type="text"
+        name="postal_code"
+        id="postal_code"
+        placeholder="Postal Code"
+        required
+      />
 
       <p class="highlight-text">
         Spend More &gt; Get More Giveaway Entries than Others &gt; Win iPhone 16 🏆
@@ -286,18 +318,24 @@
       <!-- Consent Checkbox -->
       <div class="checkbox-container">
         <label>
-          <input type="checkbox" id="consent" required />
+          <input 
+            type="checkbox"
+            id="consent"
+            required
+          />
           I agree to terms &amp; conditions. By providing my phone number, I agree to
           receive calls, emails &amp; WhatsApp messages.
         </label>
       </div>
 
+      <!-- Submit Button -->
       <button class="submit-button">🏆 WIN YOUR FREE PHONE</button>
     </form>
   </div>
 
-  <!-- Countdown Script -->
+  <!-- Scripts -->
   <script>
+    // ========== Countdown Script ==========
     function updateCountdown() {
       const targetDate = new Date("February 21, 2025 20:00:00 GMT+0530").getTime();
       const now = new Date().getTime();
@@ -316,9 +354,78 @@
         (timeLeft % (1000 * 60)) / 1000
       );
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // ========== Auto-Prefix "+91" WITHOUT Space ==========
+    const phoneInput = document.getElementById("phone");
+    phoneInput.addEventListener("input", function () {
+      // If user tries removing "+91", we re-add it.
+      if (!this.value.startsWith("+91")) {
+        this.value = "+91" + this.value.replace(/^\+91/, "");
+      }
+    });
+
+    // ========== Detailed Validation on Submit ==========
+    document.getElementById("winForm").addEventListener("submit", function (e) {
+      // 1. Name: Must not be empty, letters/spaces only
+      const nameVal = document.getElementById("name").value.trim();
+      if (!nameVal) {
+        e.preventDefault();
+        alert("Name is required. Please complete the form to submit your application.");
+        return;
+      }
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(nameVal)) {
+        e.preventDefault();
+        alert("Please enter a valid name (letters and spaces only).");
+        return;
+      }
+
+      // 2. Email: Must not be empty, basic email check
+      const emailVal = document.getElementById("email").value.trim();
+      if (!emailVal) {
+        e.preventDefault();
+        alert("Email is required. Please complete the form to submit your application.");
+        return;
+      }
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(emailVal)) {
+        e.preventDefault();
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // 3. Phone: must not be empty, must match +91 + 10 digits
+      const phoneVal = phoneInput.value.trim();
+      if (!phoneVal) {
+        e.preventDefault();
+        alert("Phone is required. Please complete the form to submit your application.");
+        return;
+      }
+      const phoneRegex = /^\+91\d{10}$/; // No space
+      if (!phoneRegex.test(phoneVal)) {
+        e.preventDefault();
+        alert("WhatsApp number must be '+91' followed by exactly 10 digits.");
+        return;
+      }
+
+      // 4. Postal Code: must not be empty, exactly 6 digits
+      const postalVal = document.getElementById("postal_code").value.trim();
+      if (!postalVal) {
+        e.preventDefault();
+        alert("Postal Code is required. Please complete the form to submit your application.");
+        return;
+      }
+      const postalRegex = /^\d{6}$/;
+      if (!postalRegex.test(postalVal)) {
+        e.preventDefault();
+        alert("Postal Code must be exactly 6 digits.");
+        return;
+      }
+
+      // If all checks pass, the form will POST to your n8n webhook.
+    });
   </script>
 </body>
 </html>
