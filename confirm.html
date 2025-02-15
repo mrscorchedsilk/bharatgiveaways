@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Win an iPhone 16 – Limited Time Offer!</title>
+
+  <!-- Google Tag Manager (Paste as high in the head as possible) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TNKPTK5F');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Ensure padding/borders don't exceed widths */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* General Page Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: black;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Full-Width Dark Navy Blue Header Banner */
+    .header-banner {
+      background: #0e182c; /* dark navy blue */
+      color: white;
+      padding: 10px 0;
+      font-size: 28px;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Countdown Title */
+    #countdown-title {
+      font-size: 24px;
+      font-weight: 550;
+      color: white;
+      margin-bottom: 10px;
+      font-family: 'Black Han Sans', sans-serif;
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;  /* Space between each .time-box */
+      margin-top: 10px;
+      color: red;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      padding: 5px; 
+      min-width: 60px;
+      text-align: center;
+      line-height: 1; /* Tighter line-height */
+    }
+
+    .time-box span,
+    .time-box label {
+      display: block;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .time-box label {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: black;
+      color: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      margin: 8px auto; /* Centers the black container horizontally */
+      text-align: left;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Title */
+    .form-container h2 {
+      text-align: center;
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 5px;
+        margin-top: -7px;
+    }
+
+    /* Highlighted Blue Text */
+    .highlight-text {
+      text-align: center;
+      font-weight: bold;
+      color: #6bb3ff; /* lighter blue */
+      margin: 10px 0;
+    }
+
+    /* Input Fields */
+    input[type="text"],
+    input[type="tel"] {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-align: left; /* left-aligned text */
+    }
+
+    input::placeholder {
+      color: #ccc;
+      text-align: left; /* ensure placeholder is left-aligned too */
+    }
+
+    /* Multiple Choice Question */
+    .choices label {
+      display: block;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px 0;
+    }
+
+    .choices input {
+      display: none; /* hide the actual radio buttons */
+    }
+
+    .choices label:hover,
+    .choices input:checked + label {
+      background: #0099ff;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Consent Checkbox Container */
+    .checkbox-container {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: left; 
+    }
+
+    .checkbox-container label {
+      display: inline-flex;
+      align-items: flex-start;
+      flex-wrap: wrap; 
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;    
+      margin: 0;
+      word-break: break-word; 
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 2px; 
+    }
+
+    /* iPhone Image */
+    .iphone-image {
+      width: 100%;
+      max-width: 350px;
+      margin: 5px auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Submit Button */
+    .submit-button {
+      background: linear-gradient(to right, #0099ff, #00c3ff);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 25px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    /* Footer Styling */
+    .footer-links {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      .countdown-timer {
+        flex-wrap: wrap;
+      }
+      .form-container {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) - Immediately after <body> -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNKPTK5F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header Banner with Countdown Timer -->
+  <div class="header-banner">
+    <div id="countdown-title">WINNER SELECTED IN</div>
+    <div class="countdown-timer">
+      <div class="time-box">
+        <span id="days">--</span>
+        <label>Days</label>
+      </div>
+      <div class="time-box">
+        <span id="hours">--</span>
+        <label>Hours</label>
+      </div>
+      <div class="time-box">
+        <span id="minutes">--</span>
+        <label>Minutes</label>
+      </div>
+      <div class="time-box">
+        <span id="seconds">--</span>
+        <label>Seconds</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- iPhone Image -->
+  <img src="images/iphone1.jpeg" alt="Win an iPhone 16" class="iphone-image" />
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <form
+      id="winForm"
+      action="https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21"
+      method="POST"
+      novalidate
+    >
+      <h2>Apply To WIN👇</h2>
+
+      <!-- Full Name (letters/spaces only) -->
+      <input 
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Full Name"
+        required
+      />
+
+      <!-- Email -->
+      <input 
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Email"
+        required
+      />
+
+      <!-- WhatsApp Number (Auto-Prefix +91, No Space) -->
+      <input 
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="WhatsApp Number"
+        required
+      />
+
+      <!-- Postal Code -->
+      <input 
+        type="text"
+        name="postal_code"
+        id="postal_code"
+        placeholder="Postal Code"
+        required
+      />
+
+      <p class="highlight-text">
+        Spend More &gt; Get More Giveaway Entries than Others &gt; Win iPhone 16 🏆
+      </p>
+
+      <!-- Spend More Question -->
+      <label>How much would you spend to increase your chances of winning?</label>
+      <div class="choices">
+        <input type="radio" id="choice1" name="investment" value="₹99–499" />
+        <label for="choice1">🏅 ₹99–499 – I want better odds</label>
+
+        <input type="radio" id="choice2" name="investment" value="₹499–999" />
+        <label for="choice2">🚀 ₹499–999 – I’m serious about winning</label>
+
+        <input type="radio" id="choice3" name="investment" value="₹1,000+" />
+        <label for="choice3">🏆 ₹1,000+ – I’ll do whatever it takes to win!</label>
+
+        <input type="radio" id="choice4" name="investment" value="No iPhone" />
+        <label for="choice4">😔 I don't want to win an iPhone</label>
+      </div>
+
+      <!-- Household Members Question -->
+      <label>How many members are in your household?</label>
+      <div class="choices">
+        <input type="radio" id="household1" name="household_size" value="1-2" />
+        <label for="household1">1 - 2 Members</label>
+
+        <input type="radio" id="household2" name="household_size" value="3-4" />
+        <label for="household2">3 - 4 Members</label>
+
+        <input type="radio" id="household3" name="household_size" value="5+" />
+        <label for="household3">5+ Members</label>
+      </div>
+
+      <!-- Consent Checkbox -->
+      <div class="checkbox-container">
+        <label>
+          <input 
+            type="checkbox"
+            id="consent"
+            required
+          />
+          I agree to terms &amp; conditions. By providing my phone number, I agree to
+          receive calls, emails &amp; WhatsApp messages.
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <button class="submit-button">🏆 WIN YOUR FREE PHONE</button>
+    </form>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    &copy; 2025 | Bharat Giveaways™ | 
+    <a href="https://rajatkhandelwal.com/termsandconditions" target="_blank">
+      Terms &amp; Conditions
+    </a> | 
+    <a href="https://rajatkhandelwal.com/privacypolicy" target="_blank">
+      Privacy Policy
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // ========== Countdown Script ==========
+    function updateCountdown() {
+      const targetDate = new Date("February 21, 2025 20:00:00 GMT+0530").getTime();
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      document.getElementById("days").innerText = Math.floor(
+        timeLeft / (1000 * 60 * 60 * 24)
+      );
+      document.getElementById("hours").innerText = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      document.getElementById("minutes").innerText = Math.floor(
+        (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      document.getElementById("seconds").innerText = Math.floor(
+        (timeLeft % (1000 * 60)) / 1000
+      );
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // ========== Auto-Prefix "+91" WITHOUT Space ==========
+    const phoneInput = document.getElementById("phone");
+    phoneInput.addEventListener("input", function () {
+      // If user tries removing "+91", we re-add it.
+      if (!this.value.startsWith("+91")) {
+        this.value = "+91" + this.value.replace(/^\+91/, "");
+      }
+    });
+
+    // ========== Detailed Validation on Submit ==========
+    document.getElementById("winForm").addEventListener("submit", function (e) {
+      // 1. Name: Must not be empty, letters/spaces only
+      const nameVal = document.getElementById("name").value.trim();
+      if (!nameVal) {
+        e.preventDefault();
+        alert("Name is required. Please complete the form to submit your application.");
+        return;
+      }
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(nameVal)) {
+        e.preventDefault();
+        alert("Please enter a valid name (letters and spaces only).");
+        return;
+      }
+
+      // 2. Email: Must not be empty, basic email check
+      const emailVal = document.getElementById("email").value.trim();
+      if (!emailVal) {
+        e.preventDefault();
+        alert("Email is required. Please complete the form to submit your application.");
+        return;
+      }
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(emailVal)) {
+        e.preventDefault();
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // 3. Phone: must not be empty, must match +91 + 10 digits
+      const phoneVal = phoneInput.value.trim();
+      if (!phoneVal) {
+        e.preventDefault();
+        alert("Phone is required. Please complete the form to submit your application.");
+        return;
+      }
+      const phoneRegex = /^\+91\d{10}$/; // No space
+      if (!phoneRegex.test(phoneVal)) {
+        e.preventDefault();
+        alert("WhatsApp number must be '+91' followed by exactly 10 digits.");
+        return;
+      }
+
+      // 4. Postal Code: must not be empty, exactly 6 digits
+      const postalVal = document.getElementById("postal_code").value.trim();
+      if (!postalVal) {
+        e.preventDefault();
+        alert("Postal Code is required. Please complete the form to submit your application.");
+        return;
+      }
+      const postalRegex = /^\d{6}$/;
+      if (!postalRegex.test(postalVal)) {
+        e.preventDefault();
+        alert("Postal Code must be exactly 6 digits.");
+        return;
+      }
+
+      // If all checks pass, the form will POST to your n8n webhook.
+    });
+  </script>
+</body>
+</html>
