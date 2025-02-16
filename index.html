@@ -92,6 +92,14 @@
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Puzzle Header */
+    .puzzle-header {
+      font-size: 1.2em; 
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
     /* Form Title */
     .form-container h2 {
       text-align: center;
@@ -99,7 +107,7 @@
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 5px;
-      margin-top: -7px;
+      margin-top: 5px;
     }
 
     /* Highlighted Blue Text */
@@ -290,15 +298,6 @@
         required
       />
 
-      <!-- Postal Code -->
-      <input 
-        type="text"
-        name="postal_code"
-        id="postal_code"
-        placeholder="Postal Code"
-        required
-      />
-
       <p class="highlight-text">
         Spend More &gt; Get More Giveaway Entries than Others &gt; Win iPhone 16 🏆
       </p>
@@ -331,6 +330,19 @@
         <input type="radio" id="household3" name="household_size" value="5+" />
         <label for="household3">5+ Members</label>
       </div>
+
+      <!-- Bigger Math Problem at the Top -->
+      <h3 class="puzzle-header">
+        Solve 
+        <span id="random1"></span> + <span id="random2"></span>
+        to prove you are a skilled human!
+      </h3>
+      <input 
+        type="text"
+        id="puzzle_answer"
+        placeholder="Your Answer"
+        required
+      />
 
       <!-- Consent Checkbox -->
       <div class="checkbox-container">
@@ -388,24 +400,30 @@
     // ========== Auto-Prefix "+91" WITHOUT Space ==========
     const phoneInput = document.getElementById("phone");
     phoneInput.addEventListener("input", function () {
-      // If user tries removing "+91", we re-add it.
+      // If user tries removing "+91", re-add it.
       if (!this.value.startsWith("+91")) {
         this.value = "+91" + this.value.replace(/^\+91/, "");
       }
     });
 
-    // ========== Detailed Validation on Submit ==========
+    // ========== Generate Random Puzzle ==========
+    const random1 = Math.floor(Math.random() * 9) + 1; // digits 1-9
+    const random2 = Math.floor(Math.random() * 9) + 1;
+    document.getElementById("random1").textContent = random1;
+    document.getElementById("random2").textContent = random2;
+
+    // ========== Detailed Validation on Submit + Puzzle Check + Redirect ==========
     document.getElementById("winForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // We'll handle the submission programmatically
+
       // 1. Name: Must not be empty, letters/spaces only
       const nameVal = document.getElementById("name").value.trim();
       if (!nameVal) {
-        e.preventDefault();
         alert("Name is required. Please complete the form to submit your application.");
         return;
       }
       const nameRegex = /^[A-Za-z\s]+$/;
       if (!nameRegex.test(nameVal)) {
-        e.preventDefault();
         alert("Please enter a valid name (letters and spaces only).");
         return;
       }
@@ -413,13 +431,11 @@
       // 2. Email: Must not be empty, basic email check
       const emailVal = document.getElementById("email").value.trim();
       if (!emailVal) {
-        e.preventDefault();
         alert("Email is required. Please complete the form to submit your application.");
         return;
       }
       const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
       if (!emailRegex.test(emailVal)) {
-        e.preventDefault();
         alert("Please enter a valid email address.");
         return;
       }
@@ -427,32 +443,36 @@
       // 3. Phone: must not be empty, must match +91 + 10 digits
       const phoneVal = phoneInput.value.trim();
       if (!phoneVal) {
-        e.preventDefault();
         alert("Phone is required. Please complete the form to submit your application.");
         return;
       }
       const phoneRegex = /^\+91\d{10}$/; // No space
       if (!phoneRegex.test(phoneVal)) {
-        e.preventDefault();
         alert("WhatsApp number must be '+91' followed by exactly 10 digits.");
         return;
       }
 
-      // 4. Postal Code: must not be empty, exactly 6 digits
-      const postalVal = document.getElementById("postal_code").value.trim();
-      if (!postalVal) {
-        e.preventDefault();
-        alert("Postal Code is required. Please complete the form to submit your application.");
-        return;
-      }
-      const postalRegex = /^\d{6}$/;
-      if (!postalRegex.test(postalVal)) {
-        e.preventDefault();
-        alert("Postal Code must be exactly 6 digits.");
+      // 4. Puzzle Check
+      const puzzleAnswer = document.getElementById("puzzle_answer").value.trim();
+      if (parseInt(puzzleAnswer, 10) !== (random1 + random2)) {
+        alert("Wrong puzzle answer. Please try again.");
         return;
       }
 
-      // If all checks pass, the form will POST to your n8n webhook.
+      // All checks pass: submit via fetch
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: this.method,
+        body: formData
+      })
+      .then(() => {
+        // On success, redirect
+        window.location.href = "http://win.bharatgiveaways.com/confirm";
+      })
+      .catch(() => {
+        alert("Something went wrong. Please try again later.");
+      });
     });
   </script>
 </body>
