@@ -484,6 +484,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return;
       }
 
+      // === NEW (5): Check "How much would you spend" radio group ===
+      const investmentVal = document.querySelector('input[name="investment"]:checked');
+      if (!investmentVal) {
+        alert("Please select how much you'd spend to increase your chances of winning.");
+        return;
+      }
+
+      // === NEW (6): Check "How many members in your household" radio group ===
+      const householdVal = document.querySelector('input[name="household_size"]:checked');
+      if (!householdVal) {
+        alert("Please select how many members are in your household.");
+        return;
+      }
+
       // All checks pass: submit via fetch
       const formData = new FormData(this);
 
