@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNKPTK5F');</script>
+  <!-- End Google Tag Manager -->
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TNKPTK5F');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF44K495TH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LF44K495TH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LF44K495TH');
-</script>
+    gtag('config', 'G-LF44K495TH');
+  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -369,13 +368,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         required
       />
 
-      <!-- Hidden Fields to Capture UTM Parameters -->
-      <input type="hidden" id="utm_source" name="utm_source" value="">
-      <input type="hidden" id="utm_medium" name="utm_medium" value="">
-      <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
-      <input type="hidden" id="utm_content" name="utm_content" value="">
-      <input type="hidden" id="utm_term" name="utm_term" value="">
-
       <!-- Consent Checkbox -->
       <div class="checkbox-container">
         <label>
@@ -443,18 +435,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const random2 = Math.floor(Math.random() * 9) + 1;
     document.getElementById("random1").textContent = random1;
     document.getElementById("random2").textContent = random2;
-
-    // ========== Capture UTM Parameters and Populate Hidden Fields ==========
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param) || "";
-    }
-
-    document.getElementById("utm_source").value   = getQueryParam("utm_source");
-    document.getElementById("utm_medium").value   = getQueryParam("utm_medium");
-    document.getElementById("utm_campaign").value = getQueryParam("utm_campaign");
-    document.getElementById("utm_content").value  = getQueryParam("utm_content");
-    document.getElementById("utm_term").value     = getQueryParam("utm_term");
 
     // ========== Detailed Validation on Submit + Puzzle Check + Redirect ==========
     document.getElementById("winForm").addEventListener("submit", function (e) {
