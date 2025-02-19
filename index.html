@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TNKPTK5F');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNKPTK5F');</script>
+  <!-- End Google Tag Manager -->
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LF44K495TH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LF44K495TH');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF44K495TH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LF44K495TH');
+  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -255,8 +254,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNKPTK5F"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNKPTK5F"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 
@@ -290,7 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="form-container">
     <form
       id="winForm"
-      action="https://rajatk.app.n8n.cloud/webhook/79b58b31-eaaf-476b-b01e-01fef9354c21"
+      action="https://n8n.rajatkhandelwal.com/webhook/cb4b9b6f-8a6f-40e9-8cc3-912145d83b79"
       method="POST"
       novalidate
     >
@@ -369,6 +370,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         required
       />
 
+      <!-- Hidden Fields to Capture UTM Parameters -->
+      <input type="hidden" name="utm_source"   id="utm_source">
+      <input type="hidden" name="utm_medium"   id="utm_medium">
+      <input type="hidden" name="utm_campaign" id="utm_campaign">
+      <input type="hidden" name="utm_content"  id="utm_content">
+      <input type="hidden" name="utm_term"     id="utm_term">
+
       <!-- Consent Checkbox -->
       <div class="checkbox-container">
         <label>
@@ -437,6 +445,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById("random1").textContent = random1;
     document.getElementById("random2").textContent = random2;
 
+    // ========== Populate Hidden UTM Fields ==========
+    function setUTMParams() {
+      const params = new URLSearchParams(window.location.search);
+
+      document.getElementById("utm_source").value   = params.get("utm_source")   || "";
+      document.getElementById("utm_medium").value   = params.get("utm_medium")   || "";
+      document.getElementById("utm_campaign").value = params.get("utm_campaign") || "";
+      document.getElementById("utm_content").value  = params.get("utm_content")  || "";
+      document.getElementById("utm_term").value     = params.get("utm_term")     || "";
+    }
+    // Run once the page loads
+    window.addEventListener("DOMContentLoaded", setUTMParams);
+
     // ========== Detailed Validation on Submit + Puzzle Check + Redirect ==========
     document.getElementById("winForm").addEventListener("submit", function (e) {
       e.preventDefault(); // We'll handle the submission programmatically
@@ -484,14 +505,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return;
       }
 
-      // === NEW (5): Check "How much would you spend" radio group ===
+      // 5. Check "How much would you spend" radio group
       const investmentVal = document.querySelector('input[name="investment"]:checked');
       if (!investmentVal) {
         alert("Please select how much you'd spend to increase your chances of winning.");
         return;
       }
 
-      // === NEW (6): Check "How many members in your household" radio group ===
+      // 6. Check "How many members in your household" radio group
       const householdVal = document.querySelector('input[name="household_size"]:checked');
       if (!householdVal) {
         alert("Please select how many members are in your household.");
